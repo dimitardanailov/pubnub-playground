@@ -1,9 +1,13 @@
-import Page from '../components/Page'
+import Page from '../components/basic/Page'
+import ApplicationHeader from '../components/basic/Header'
 
 export default function Home() {
-	return (
-		<Page>
-			<h2>Home page!!!</h2>
-		</Page>
-	)
+  return (
+    <div>
+      <ApplicationHeader />
+      <Page>
+        <h2>Home Page !!!</h2>
+      </Page>
+    </div>
+  )
 }
