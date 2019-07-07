@@ -1,10 +1,7 @@
 import React from 'react'
-
-let pubnub
+import { initialize } from '../../utils/PubnubApp'
 
 class Page extends React.Component {
-
-  pubnub
 
   constructor(props) {
     super(props)
@@ -12,16 +9,20 @@ class Page extends React.Component {
     this.handlePublish = this.handlePublish.bind(this)
   }
 
-  componentDidMount() {
-    this.pubnub = new PubNub(PUBNUB_CONFIG)
-
-  }
-
   handlePublish() {
-    console.log(this.pubnub)
+    const pubnubApp = initialize()
+
+    // Publish a simple message to the demo_tutorial channel
+    pubnubApp.publish({
+      message: {
+        color: 'blue'
+      },
+      channel: 'demo_tutorial'
+    })
   }
 
   render() {
+
     return (
       <section className="page">
         <div>Hello World</div>
